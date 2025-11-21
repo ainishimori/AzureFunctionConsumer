@@ -102,14 +102,18 @@
             {
               "name": "AzureWebJobsStorage",
               "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';EndpointSuffix=', environment().suffixes.storage, ';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').keys[0].value)]"
+              
             },
             {
-              "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
+              "AzureWebJobsStorage__credential": "managedidentity"
+              "AzureWebJobsStorage__clientId": 57f0a96a-8d28-485e-919e-312ce3758e5d
+            {
+            
               "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';EndpointSuffix=', environment().suffixes.storage, ';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').keys[0].value)]"
             },
             {
-              "name": "WEBSITE_CONTENTSHARE",
-              "value": "[toLower(variables('functionAppName'))]"
+            
+              "value": "[toLower(variables('functinAppName'))]"
             },
             {
               "name": "WEBSITE_RUN_FROM_PACKAGE",
@@ -163,4 +167,5 @@
  ]
 
 }
+
 
