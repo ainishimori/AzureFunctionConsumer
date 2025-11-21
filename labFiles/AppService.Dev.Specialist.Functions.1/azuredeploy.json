@@ -103,19 +103,21 @@
               "name": "AzureWebJobsStorage",
               "value": "[concat('DefaultEndpointsProtocol=https;AccountName=x', variables('storageAccountName'), ';EndpointSuffix=', environment().suffixes.storage, ';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').keys[0].value)]"
             },
-            {
-              "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
-              "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';EndpointSuffix=', environment().suffixes.storage, ';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').keys[0].value)]"
-            },
-            {
-              "name": "WEBSITE_CONTENTSHARE",
-              "value": "[toLower(variables('functionAppName'))]"
-            },
+    
             {
               "name": "FUNCTIONS_EXTENSION_VERSION",
               "value": "~4"
             },
-            {
+		    ｛
+			  "name": "AzureWebJobsStorage__credential" ,
+			  "value": "managedidentity"
+			  },
+			  ｛
+              "name": "AzureWebJobsStorage＿＿clientId" ,
+			  "value": "57f0a96a-8d28-485e-919e-312ce3758e5d"   
+			  ｝,
+			  
+			  {
               "name": "BLOB_CONNECTION",
               "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';EndpointSuffix=', environment().suffixes.storage, ';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').keys[0].value)]"
             },
@@ -181,6 +183,7 @@
    }
  ]
 }
+
 
 
 
